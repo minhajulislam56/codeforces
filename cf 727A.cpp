@@ -2,33 +2,30 @@
 using namespace std;
 int main()
 {
-    long long int a,b,p1,p2;
-    cin>>a>>b;
-    vector<long long int> vec;
-    vec.push_back(b);
-    while(b>=a){
-        if(b==a){
-            cout<<"YES"<<endl<<vec.size()<<endl;
-            for(int i=vec.size()-1;i>=0;i--)
-                cout<<vec[i]<<" ";
-            return 0;
+    int x,y,yy;
+    cin>>x>>y;
+    yy=y;
+    vector<int> v;
+    while(y>x){
+        if(y%10==1){
+            y=y-1;
+            y/=10;
+            v.push_back(y);
         }
-        if(b%2==0){
-            b=b/2;
-            vec.push_back(b);
+        else if(y%2==0){
+            y/=2;
+            v.push_back(y);
         }
-        else{
-            if(b%10 != 1){
-                cout<<"NO"<<endl;
-                return 0;
-            }
-            else{
-                b=b/10;
-                vec.push_back(b);
-            }
-        }
+        else break;
     }
-    cout<<"NO"<<endl;
+    if(x==y){
+        cout<<"YES"<<endl;
+        cout<<v.size()+1<<endl;
+        for(int i=v.size()-1;i>=0;i--) cout<<v[i]<<" ";
+        cout<<yy<<endl;
+    }
+    else cout<<"NO"<<endl;
+
 
     return 0;
 }
